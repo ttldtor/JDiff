@@ -516,13 +516,13 @@ public class Snake<T>
 
             if (this.IsForward)
             {
-                this.XStart = Math.min(this.XStart, snake.XStart);
-                this.YStart = Math.min(this.YStart, snake.YStart);
+                this.XStart = Math.min(this.XStart, (snake.IsForward) ? snake.XStart : snake.getXEnd());
+                this.YStart = Math.min(this.YStart, (snake.IsForward) ? snake.YStart : snake.getYEnd());
             }
             else
             {
-                this.XStart = Math.max(this.XStart, snake.XStart);
-                this.YStart = Math.max(this.YStart, snake.YStart);
+                this.XStart = Math.max(this.XStart, (snake.IsForward) ? snake.getXEnd() : snake.XStart);
+                this.YStart = Math.max(this.YStart, (snake.IsForward) ? snake.getYEnd() : snake.YStart);
             }
             return true;
         }
